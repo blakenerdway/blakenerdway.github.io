@@ -5,7 +5,6 @@ body {
 
 .states {
 	fill: none;
-	stroke: #000;
 	stroke-linejoin: round;
 }
 
@@ -22,6 +21,10 @@ body {
 	display: none;
 }
 
+#movement-bar{
+	width: inherit;
+}
+
 .tooltip_key {
 	font-weight: bold;
 }
@@ -30,3 +33,26 @@ body {
 	margin-left: 20px;
 	float: right;
 }
+
+.bottom {
+	position: absolute;
+	bottom: 0;
+}
+
+.right {
+	position: absolute;
+	right: 0;
+}
+
+.data-attribution{
+	padding: 0 5px;
+	background: #bbb7;
+	margin: 0;
+}
+
+.data-attribution a{
+	color: #0078A8;
+	text-decoration: none;
+	font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
