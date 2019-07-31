@@ -1,3 +1,37 @@
+class PageCount{
+    constructor(){
+        this._currPage = 1;
+    }
+
+
+    pageBackward(){
+        this._currPage--;
+        if (this._currPage === 1){
+            $('#page-backward').attr("disabled", true);
+        }
+
+        $('#page-forward').attr("disabled", false);
+    };
+
+    pageForward(){
+        this._currPage++;
+        if (this._currPage === 3){
+            $('#page-forward').attr("disabled", true);
+        }
+        $('#page-backward').attr("disabled", false);
+    };
+}
+
+pageCount = new PageCount();
+
+// Returns the name for a code
+codeToNameMap = new Map();
+// Returns the id for a name
+idToName = {};
+// Returns the code for an id
+codeToIDMap = {};
+valueById = d3.map();
+
 async function onLoad() {
     let data = await d3.csv("average_medicare_2017.csv");
     let names = await d3.tsv("https://s3-us-west-2.amazonaws.com/vida-public/geo/us-state-names.tsv");
@@ -11,7 +45,6 @@ async function onLoad() {
     let width = 1000,
         height = 800;
 
-    let valueById = d3.map();
     let path = d3.geoPath();
 
     let svg = d3.select("#map-svg").select("svg")
@@ -19,13 +52,6 @@ async function onLoad() {
         .attr("height", height);
 
     console.log(names);
-
-    // Returns the name for a code
-    let codeToNameMap = new Map();
-    // Returns the id for a name
-    let idToName = {};
-
-    let codeToIDMap = {};
 
     for (let i = 0; i < names.length; i++) {
         codeToNameMap.set(names[i].code, names[i].name);
@@ -61,6 +87,8 @@ async function onLoad() {
         valueById.set(id, d[data_value]);
     });
 
+    var maxWaitTime = -1;
+
     let paths = svg.append("g")
         .attr("class", "states-choropleth")
         .selectAll("path")
@@ -71,36 +99,7 @@ async function onLoad() {
             return idToName[d.id];
         })
         .attr("d", path)
-        .on("mousemove", function (d) {
-            let html = "";
-
-            html += "<div class=\"tooltip_kv\">";
-            html += "<span class=\"tooltip_key\">";
-            html += idToName[d.id];
-            html += "</span>";
-            html += "<span class=\"tooltip_value\">";
-            html += (valueById.get(d.id) ? valueById.get(d.id) : "");
-            html += "</span>";
-            html += "</div>";
-
-            const tooltipContainer = $("#tooltip-container");
-            tooltipContainer.html(html);
-            $(this).attr("fill-opacity", "0.8");
-            tooltipContainer.show();
-
-            let map_width = $('.states-choropleth')[0].getBoundingClientRect().width;
-
-            if (d3.event.layerX < map_width / 2) {
-                d3.select("#tooltip-container")
-                    .style("top", (d3.event.layerY + 15) + "px")
-                    .style("left", (d3.event.layerX + 15) + "px");
-            } else {
-                let tooltip_width = tooltipContainer.width();
-                d3.select("#tooltip-container")
-                    .style("top", (d3.event.layerY + 15) + "px")
-                    .style("left", (d3.event.layerX - tooltip_width - 30) + "px");
-            }
-        })
+        .on("mousemove", buildTooltip)
         .on("mouseout", function () {
             $(this).attr("fill-opacity", "1.0");
             $("#tooltip-container").hide();
@@ -112,20 +111,60 @@ async function onLoad() {
             } else {
                 return "";
             }
-        });
-
-    svg.attr("opacity", 0)
+        })
+        .attr("opacity", 0)
         .transition()
         .attr("opacity", 1)
-        .delay(200)
+        .delay(function(d, i){
+            let waitTime = Math.random() * 1500 + 200;
+            if (waitTime > maxWaitTime){
+                maxWaitTime = waitTime;
+            }
+            return waitTime;
+        })
         .duration(1500)
         .ease(d3.easeCubicInOut);
-
-
 
     svg.append("g").append("path")
         .datum(topojson.mesh(us, us.objects.states, (a, b) => a !== b))
         .attr("class", "states")
         .attr("d", path)
-        .style("stroke", "#000");
+        .style("stroke", "#000")
+        .attr("opacity", 0)
+        .transition()
+        .attr("opacity", 1)
+        .delay(maxWaitTime)
+        .duration(1500)
+        .ease(d3.easeCubicInOut);
+}
+
+function buildTooltip(d){
+    let html = "";
+
+    html += "<div class=\"tooltip_kv\">";
+    html += "<span class=\"tooltip_key\">";
+    html += idToName[d.id];
+    html += "</span>";
+    html += "<span class=\"tooltip_value\">";
+    html += (valueById.get(d.id) ? valueById.get(d.id) : "");
+    html += "</span>";
+    html += "</div>";
+
+    const tooltipContainer = $("#tooltip-container");
+    tooltipContainer.html(html);
+    $(this).attr("fill-opacity", "0.8");
+    tooltipContainer.show();
+
+    let map_width = $('.states-choropleth')[0].getBoundingClientRect().width;
+
+    if (d3.event.layerX < map_width / 2) {
+        d3.select("#tooltip-container")
+            .style("top", (d3.event.layerY + 15) + "px")
+            .style("left", (d3.event.layerX + 15) + "px");
+    } else {
+        let tooltip_width = tooltipContainer.width();
+        d3.select("#tooltip-container")
+            .style("top", (d3.event.layerY + 15) + "px")
+            .style("left", (d3.event.layerX - tooltip_width - 30) + "px");
+    }
 }
