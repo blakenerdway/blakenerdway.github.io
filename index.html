@@ -6,24 +6,28 @@
 		<meta http-equiv="Expires" content="0" />
 		<link rel="stylesheet" href="style.css">
 
-		<script  type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-		<script type="text/javascript" src="d3v5-code.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.0/topojson.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="d3-annotation.min.js"></script>
 
-	
+
+		<script type="text/javascript" src="d3v5-code.js"></script>
+		<script type="text/javascript" src="transitions.js"></script>
 	</head>
 
 <body onload="onLoad()">
-	<div style="width: 1100px; height: 800px; position:absolute;">
+	<div align="center" style="width: 90%; height: 90%; position:absolute;">
 		<div id="tooltip-container"></div>
-		<div id="map-svg" align="center" >
-			<svg></svg>
+		<div id="main-content-container" align="center">
+			<h2 align="center" id="title"></h2>
+			<svg id="svg-map"></svg>
 		</div>
 		<div id="movement-bar" class="bottom">
-			<button disabled="true" id="page-backward" onclick="moveBackward()">Back</button>
-			<button id="page-forward" class="right" onclick="moveForward()">Forward</button>
+			<div style="width: 80%;">
+				<button disabled="true" id="page-backward"  style="position:absolute; left: 10%;" onclick="moveBackward()">Back</button>
+				<button id="page-forward" style="position:absolute; right: 10%;" onclick="moveForward()">Forward</button>
+			</div>
 		</div>
 	</div>
 	<div class="bottom right">

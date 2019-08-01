@@ -1,5 +1,6 @@
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	overflow-x: hidden;
 }
 
 
@@ -8,7 +9,11 @@ body {
 	stroke-linejoin: round;
 }
 
-.states-choropleth {
+.annotation-test{
+	pointer-events: none;
+}
+
+#states-choropleth {
 	fill: #ccc;
 }
 
@@ -19,6 +24,23 @@ body {
 	padding: 10px;
 	border: 1px solid;
 	display: none;
+	z-index: 1000;
+}
+
+.annotation text {
+	fill: #ff0087;
+	font-weight: bold;
+	font-family: Roboto, sans-serif;
+}
+
+#title{
+	opacity: 0;
+	font-family: Roboto, sans-serif;
+}
+
+#legend {
+	-webkit-transform: translate(68.5%, 2%);
+	transform: translate(68.5%, 2%);
 }
 
 #movement-bar{
@@ -44,6 +66,11 @@ body {
 	right: 0;
 }
 
+.left {
+	position: absolute;
+	left: 0;
+}
+
 .data-attribution{
 	padding: 0 5px;
 	background: #bbb7;
@@ -56,3 +83,12 @@ body {
 	font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
+.state:hover {
+	transform: scale(1.1);
+}
+
+
+.state {
+	transition: all .75s;
+	transform-origin: 50% 50%;
+}
