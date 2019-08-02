@@ -25,35 +25,48 @@ body {
 	border: 1px solid;
 	display: none;
 	z-index: 1000;
-}
-
-.annotation text {
-	fill: #ff0087;
-	font-weight: bold;
-	font-family: Roboto, sans-serif;
-}
-
-#title{
-	opacity: 0;
-	font-family: Roboto, sans-serif;
-}
-
-#legend {
-	-webkit-transform: translate(68.5%, 2%);
-	transform: translate(68.5%, 2%);
-}
-
-#movement-bar{
-	width: inherit;
+	max-width: 300px;
 }
 
 .tooltip_key {
 	font-weight: bold;
 }
-
 .tooltip_value {
 	margin-left: 20px;
 	float: right;
+	font-size: 10pt;
+	font-family: Roboto, sans-serif;
+}
+
+
+.description{
+	font-size: 10pt;
+	font-family: Roboto, sans-serif;
+}
+
+#map-div {
+	position:relative;
+}
+#main-content-container {
+	overflow:hidden;
+}
+
+.annotation.lowest-medicare text {
+	fill: rgb(215, 48, 39);
+	font-weight: bold;
+	font-family: Roboto, sans-serif;
+}
+
+.annotation path{
+	stroke: black;
+}
+
+#title{
+	font-family: Roboto, sans-serif;
+}
+
+#movement-bar{
+	width: 40%;
 }
 
 .bottom {

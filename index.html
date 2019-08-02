@@ -17,22 +17,22 @@
 	</head>
 
 <body onload="onLoad()">
-	<div align="center" style="width: 90%; height: 90%; position:absolute;">
-		<div id="tooltip-container"></div>
-		<div id="main-content-container" align="center">
-			<h2 align="center" id="title"></h2>
-			<svg id="svg-map"></svg>
+	<div id="tooltip-container"></div>
+	<div id="map-div" align="center" style="width: 100%; height: 90%; position:absolute;">
+		<div id="main-content-container" style="width: 100%;">
+			<h2 id="title"></h2>
+			<svg id="svg-map" style="width: 100%;"></svg>
 		</div>
 		<div id="movement-bar" class="bottom">
-			<div style="width: 80%;">
-				<button disabled="true" id="page-backward"  style="position:absolute; left: 10%;" onclick="moveBackward()">Back</button>
-				<button id="page-forward" style="position:absolute; right: 10%;" onclick="moveForward()">Forward</button>
+			<div align="center">
+				<button disabled="true" id="page-backward" onclick="moveBackward()">Back</button>
+				<button id="page-forward" onclick="moveForward()">Forward</button>
 			</div>
 		</div>
 	</div>
 	<div class="bottom right">
 		<div class="data-attribution">
-			<a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Physician-and-Other-Supplier2017.html" .
+			<a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Physician-and-Other-Supplier2017.html"
 			   title = "Dataset from CMS.gov">
 				CMS.gov
 			</a>
