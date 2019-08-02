@@ -65,6 +65,9 @@ class PageTransition {
                 if (pageCount._currPage === 2){
                     new SecondScreen();
                 }
+                else{
+                    new ThirdScreen();
+                }
 
 
                 d3.select("#main-content-container").style("transform", "translateX(100%)").transition().style("transform", "translateX(0%)")
