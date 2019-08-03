@@ -105,3 +105,35 @@ body {
 	transition: all .75s;
 	transform-origin: 50% 50%;
 }
+
+.round  {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+	border-color: transparent;
+}
+
+.round:focus {
+	outline:0;
+}
+
+.round:disabled{
+	background-color: rgba(40, 52, 40, 0);
+	color: rgba(0, 0, 0, 0);
+}
+
+
+.round:hover:enabled {
+	background-color: #b5ddae;
+	color: black;
+}
+
+.round active:enabled{
+	background-color: #85ab7f;
+}
+
+.round {
+	border-radius: 50%;
+	background-color: #e8ffe0;
+	color: black;
+}
