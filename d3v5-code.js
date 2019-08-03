@@ -108,6 +108,17 @@ function fadeInMapDetails() {
 /**
  * Transition the map into viewing
  */
+function buildAnnotations(a){
+    let annotationEle = d3.select("#annotations");
+    if (annotationEle.empty()){
+        annotationEle = d3.select("#svg-map").append("svg")
+            .attr("id", "annotations-svg")
+            .append("g").attr("id", "annotations")
+    }
+
+    annotationEle.call(d3.annotation()
+        .annotations(a));
+}
 
 class FirstScreen {
     constructor() {
@@ -282,20 +293,6 @@ class FirstScreen {
         }
     }
 }
-
-
-function buildAnnotations(a){
-    let annotationEle = d3.select("#annotations");
-    if (annotationEle.empty()){
-        annotationEle = d3.select("#svg-map").append("svg")
-            .attr("id", "annotations-svg")
-            .append("g").attr("id", "annotations")
-    }
-
-    annotationEle.call(d3.annotation()
-        .annotations(a));
-}
-
 
 class SecondScreen {
     constructor() {
@@ -504,11 +501,11 @@ class ThirdScreen {
 
         d3.select("#title").text('Which states have the most expensive average procedures?');
 
-        let data = await d3.csv("average_cost_of_procedure.csv");
+        this._data = await d3.csv("average_cost_of_procedure.csv");
         let data_key = "Provider State";
         let data_charge = "Avg. Submitted Charge";
 
-        data.forEach(d => {
+        this._data.forEach(d => {
             let id = codeToIDMap[d[data_key]];
             this._valueById.set(id, d[data_charge]);
         });
@@ -516,10 +513,10 @@ class ThirdScreen {
 
         let colorScale = d3.scaleQuantize().domain(
             [
-                d3.min(data, function (d) {
+                d3.min(this._data, function (d) {
                     return +d[data_charge];
                 }),
-                d3.max(data, function (d) {
+                d3.max( this._data, function (d) {
                     return +d[data_charge];
                 })
             ])
@@ -551,8 +548,27 @@ class ThirdScreen {
             });
 
         this.buildLegend(colorScale);
-        const annotations = [
 
+        this.updateTopNAnnotations(2);
+    }
+
+    updateTopNAnnotations(n){
+        d3.min(this._data, function (d) {
+            return +d[data_charge];
+        });
+
+        const annotations = [
+            {
+                connector: {
+                    end: "dot"
+                },
+                x: 915, y: 120,
+                dx: 50, dy: 0,
+                note: {
+                    label: "Maine has the lowest max expensive reported procedure, totalling at $9023.59. Medicare paid $3865 for this procedure.",
+                    wrap: 400
+                }
+            },
         ];
 
         buildAnnotations(annotations);
@@ -637,5 +653,3 @@ class ThirdScreen {
 
 
 }
-
-
