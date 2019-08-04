@@ -520,7 +520,7 @@ class ThirdScreen {
             .append('input').attr('type', 'range')
             .attr('name', 'slider')
             .attr('id', "top-n-slider")
-            .attr("min", 0)
+            .attr("min", 1)
             .attr("max", 50);
 
         d3.select('form')
@@ -528,8 +528,6 @@ class ThirdScreen {
 
 
         let slider = document.getElementById('top-n-slider');
-
-        console.log(window.nStates);
 
         slider.addEventListener('change', () => {
             window.nStates = slider.value;
@@ -599,11 +597,13 @@ class ThirdScreen {
         let startX = 950;
         let startY = 0;
 
+        let title =  (parseInt(n) === 1 ? " state" : n +  " states");
+
         annotations[0] = {
             x: startX, y: startY,
             className: "least-expensive",
             note: {
-                title: "Least expensive " + n + " states",
+                title: "Least expensive " + title,
                 wrap: 600
             }
         };
@@ -715,4 +715,4 @@ class ThirdScreen {
 
 }
 
-window.nStates = 2;
+window.nStates = 1;
