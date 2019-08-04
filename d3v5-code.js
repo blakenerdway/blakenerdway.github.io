@@ -108,13 +108,16 @@ function fadeInMapDetails() {
 /**
  * Transition the map into viewing
  */
-function buildAnnotations(a){
+function buildAnnotations(a) {
     let annotationEle = d3.select("#annotations");
-    if (annotationEle.empty()){
-        annotationEle = d3.select("#svg-map").append("svg")
-            .attr("id", "annotations-svg")
-            .append("g").attr("id", "annotations")
-    }
+
+    annotationEle.remove();
+
+
+    annotationEle = d3.select("#svg-map").append("svg")
+        .attr("id", "annotations-svg")
+        .append("g").attr("id", "annotations")
+
 
     annotationEle.call(d3.annotation()
         .annotations(a));
@@ -133,6 +136,9 @@ class FirstScreen {
             await buildMap();
             console.log('After build map');
         }
+
+
+        d3.select("#slider-form").remove();
 
         let data = await d3.csv("average_medicare_2017.csv");
         let data_key = "Provider State";
@@ -259,8 +265,6 @@ class FirstScreen {
             .remove();
     }
 
-
-
     buildTooltip(d, obj) {
         let html = "";
 
@@ -306,6 +310,9 @@ class SecondScreen {
             console.log('No map');
             await buildMap();
         }
+
+
+        d3.select("#slider-form").remove();
 
         d3.select("#title").text('What are the most expensive procedures in states?');
 
@@ -494,30 +501,63 @@ class ThirdScreen {
     }
 
     async build() {
-        if (d3.select("#states-choropleth").empty()){
+        if (d3.select("#states-choropleth").empty()) {
             console.log('No map');
             await buildMap();
         }
 
-        d3.select("#title").text('Which states have the most expensive average procedures?');
+        let title = d3.select("#title");
+        title.text('Which states have the most expensive average procedures?');
 
         this._data = await d3.csv("average_cost_of_procedure.csv");
-        let data_key = "Provider State";
-        let data_charge = "Avg. Submitted Charge";
 
-        this._data.forEach(d => {
-            let id = codeToIDMap[d[data_key]];
-            this._valueById.set(id, d[data_charge]);
+        let parentEl = d3.select("#main-content-container").node();
+
+        parentEl.insertBefore(document.createElement("form"), parentEl.childNodes[2]);
+        d3.select('form')
+            .attr('id', 'slider-form')
+            .attr('oninput', 'sliderValue.value = slider.valueAsNumber')
+            .append('input').attr('type', 'range')
+            .attr('name', 'slider')
+            .attr('id', "top-n-slider")
+            .attr("min", 0)
+            .attr("max", 50);
+
+        d3.select('form')
+            .append('output').attr('name', 'sliderValue').attr('for', 'slider').text(window.nStates);
+
+
+        let slider = document.getElementById('top-n-slider');
+
+        console.log(window.nStates);
+
+        slider.addEventListener('change', () => {
+            window.nStates = slider.value;
+           this.updateTopNAnnotations(slider.value);
         });
 
+        slider.value = window.nStates;
+
+
+        this._data_key = "Provider State";
+        this._data_charge = "Avg. Submitted Charge";
+
+        this._data = this._data.sort((d1, d2) => {
+            return d3.ascending(d1[this._data_charge], d2[this._data_charge]);
+        });
+
+        this._data.forEach(d => {
+            let id = codeToIDMap[d[this._data_key]];
+            this._valueById.set(id, d[this._data_charge]);
+        });
 
         let colorScale = d3.scaleQuantize().domain(
             [
-                d3.min(this._data, function (d) {
-                    return +d[data_charge];
+                d3.min(this._data, (d) => {
+                    return +d[this._data_charge];
                 }),
-                d3.max( this._data, function (d) {
-                    return +d[data_charge];
+                d3.max(this._data, (d) => {
+                    return +d[this._data_charge];
                 })
             ])
             .range(d3.schemeYlOrRd[6]);
@@ -534,7 +574,7 @@ class ThirdScreen {
                 }
             })
             .on("mouseover", (d) => {
-                d3.select("#states-choropleth").selectAll("path").sort((a,b) => { // select the parent and sort the path's
+                d3.select("#states-choropleth").selectAll("path").sort((a, b) => { // select the parent and sort the path's
                     if (a.id !== d.id) return -1;               // a is not the hovered element, send "a" to the back
                     else return 1;                             // a is the hovered element, bring "a" to the front
                 });
@@ -549,27 +589,48 @@ class ThirdScreen {
 
         this.buildLegend(colorScale);
 
-        this.updateTopNAnnotations(2);
+        this.updateTopNAnnotations(window.nStates);
     }
 
     updateTopNAnnotations(n){
-        d3.min(this._data, function (d) {
-            return +d[data_charge];
-        });
+        let newData = this._data.slice(0, n);
 
-        const annotations = [
-            {
-                connector: {
-                    end: "dot"
-                },
-                x: 915, y: 120,
-                dx: 50, dy: 0,
+        let annotations = [];
+        let startX = 950;
+        let startY = 0;
+
+        annotations[0] = {
+            x: startX, y: startY,
+            className: "least-expensive",
+            note: {
+                title: "Least expensive " + n + " states",
+                wrap: 600
+            }
+        };
+
+        newData.forEach((value, index) => {
+            let stateAbbr = value[this._data_key];
+            let charge = value[this._data_charge];
+
+            let xModifier = 0;
+            if (index > 24){
+                xModifier = 130;
+            }
+
+            let yModifier = 20 * (index + 1);
+            if (index > 24){
+                yModifier = 20 * (index - 24);
+            }
+
+            annotations[index + 1] = {
+                x: startX + xModifier, y: startY + yModifier,
+                className: "least-expensive",
                 note: {
-                    label: "Maine has the lowest max expensive reported procedure, totalling at $9023.59. Medicare paid $3865 for this procedure.",
-                    wrap: 400
+                    label: (index + 1) + "." + stateAbbr + ": " + d3.format("$,.2f")(charge),
+                    wrap: 200
                 }
-            },
-        ];
+            }
+        });
 
         buildAnnotations(annotations);
     }
@@ -653,3 +714,5 @@ class ThirdScreen {
 
 
 }
+
+window.nStates = 2;

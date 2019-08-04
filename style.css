@@ -137,3 +137,7 @@ body {
 	background-color: #e8ffe0;
 	color: black;
 }
+
+.least-expensive path{
+	stroke: none!important;
+}
