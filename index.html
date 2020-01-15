@@ -7,7 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700,300italic|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
@@ -41,10 +46,534 @@
         </ul>
     </div>
 </nav>
-<div>
+<div id="about">
+    <div id="name-div">
+        <h2 id="name">Blake Ordway</h2>
+        <p id="name-title">Research Associate</p>
+    </div>
     <img src="./images/frontal.jpg" alt="main picture" id="main-picture" class="">
     <h2 class="title">About me</h2>
-    <p class="description>">Hi, my name is Blake Ordway. I'm an aspiring data scientist with a background in software engineering.</p>
+    <div id="description">
+        <p>My name is Blake Ordway. I'm an aspiring data scientist with a background in software engineering. I wrote my first program, Hello World in Java, in 2014.
+            Since then, I've written programs/scripts in multiple languages such as <b>Java</b>, <b>C++</b>, <b>Scala</b>, <b>Python</b>,
+            <b>Go</b>, <b>bash</b>, <b>shell</b>, and many more.</p>
+        <h3 class="subtitle">Schooling</h3>
+        <p>In Fall 2014, I started my bachelor's degree in Computer Information Systems at Pensacola Christian College. My courses included Data Structures & Algorithms,
+            Mobile App Development, Web Development, Discrete Mathematics. In my capstone/senior project, I was selected as project manager to lead a team of 6 other students.
+            In May 2017, I graduated with a 3.34 total GPA.</p>
+        <p>After a year off of schooling, in Fall 2018, I began my master's degree in Computer Science and Data Science at UIUC.
+            I've taken courses in Text Information Systems, Cloud Computing Applications, Cloud Networking,
+            Data Curation, and Data Visualization. I plan to graduate in Fall 2020 with a near 4.0 GPA (currently 3.93).</p>
+        <div>
+            <h3 class="subtitle">Work</h3>
+            <p>I started working as an intern at IHMC in summer 2016. In Fall 2017, I became a full-time Research Associate. Since then I've worked on network visualizations and
+            network data management.</p>
+        </div>
+        <h3 class="subtitle">Hobbies</h3>
+        <p>Most of my free time is scheduled around my time at the gym after work. After that, I spend my evenings reading, watching Netflix (or other streaming services),
+        playing video games, cooking or baking, but mostly spending time with my wife. Currently, I'm reading through the Witcher series and <i>The Count of Monte Cristo</i>.</p>
+    </div>
+    <div id="skills">
+        <h2 id="skills-title" class="title">Programming Language Skills</h2>
+        <div class="skill" id="java-skill">
+            <h3 class="subtitle">Java</h3>
+            <div class="skill-detail">
+                <div>Iteration: <b>Java 8</b></div>
+                <div>Years of experience: <b>5 (2016-2020)</b></div>
+                <div>Skill level: <b>8/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" id="scala-skill">
+            <h3 class="subtitle">Scala</h3>
+            <div class="skill-detail">
+                <div>Iteration: <b>Scala 2.13</b></div>
+                <div>Years of experience: <b>0/1 (2019-2020)</b></div>
+                <div>Skill level: <b>6/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" id="python-skill">
+            <h3 class="subtitle">Python</h3>
+            <div class="skill-detail">
+                <div>Iteration: <b>Python 3.4+</b></div>
+                <div>Years of experience: <b>2 (2018-2020)</b></div>
+                <div>Skill level: <b>5/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" id="r-skill">
+            <h3 class="subtitle">R</h3>
+            <div class="skill-detail">
+                <div>Years of experience: <b>0/1 (2020-2020)</b></div>
+                <div>Skill level: <b>2/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" id="cpp-skill">
+            <h3 class="subtitle">C++</h3>
+            <div class="skill-detail">
+                <div>Iteration: <b>C++98/C++11</b></div>
+                <div>Years of experience: <b>3 (2016-2018)</b></div>
+                <div>Skill level: <b>4/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" id="html-skill">
+            <h3 class="subtitle">Web development</h3>
+            <div class="skill-detail">
+                <div>Language: <b>HTML</b></div>
+                <div>Years of experience: <b>4 (2016-2020)</b></div>
+                <div>Skill level: <b>7/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-detail">
+                <div>Language: <b>CSS</b></div>
+                <div>Years of experience: <b>4 (2016-2020)</b></div>
+                <div>Skill level: <b>5/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-detail">
+                <div>Language: <b>JS</b></div>
+                <div>Years of experience: <b>4 (2016-2020)</b></div>
+                <div>Skill level: <b>6/10</b></div>
+                <div class="skill-level">
+                    <div class="track">
+                        <div class="bar-container">
+                            <div class="bar filled first"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                            <div class="bar filled"></div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar last"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div id="project-carousel">
+    <a href="./cs498-datavis/index.html" class="card">
+        <div class="card-head">
+            <div class="card-image" id="datavis-final-img"></div>
+            <div class="project-info-header">
+                <div class="project-header">
+                    <div class="project-info">
+                        <p class="project-name">USA Medicare</p>
+                        <p class="project-for">CS 498 Final Project</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-headline">Medicare Statistics</h3>
+            <p class="card-text">This was my final project from my data visualization class. It combined my knowledge of D3 with pre-processing and exploring data using Tableau.</p>
+        </div>
+        <div class="card-border"></div>
+    </a>
+    <a href="https://public.tableau.com/profile/blake6389#!/vizhome/WeightViz/Dashboard" class="card">
+        <div class="card-head">
+            <div class="card-image" id="datavis-dash-img"></div>
+            <div class="project-info-header">
+                <div class="project-header">
+                    <div class="project-info">
+                        <p class="project-name">My health data</p>
+                        <p class="project-for">CS 498 Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-headline">Weight Dashboard</h3>
+            <p class="card-text">A dashboard created in Tableau is used to show how my weight increases over a year of tracking.
+                The data used was from an Apple Health export converted using a third-party tool to generate a CSV file.
+            </p>
+        </div>
+        <div class="card-border"></div>
+    </a>
+</div>
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">-->
+<!--            <div class="MultiCarousel-inner">-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                    <div class="item">-->
+<!--                        <div class="pad15">-->
+<!--                            <p class="lead">Multi Item Carousel</p>-->
+<!--                            <p>Test</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="pad15">-->
+<!--                        <p class="lead">Multi Item Carousel</p>-->
+<!--                        <p>Test</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <button class="btn btn-primary leftLst">&lt</button>-->
+<!--            <button class="btn btn-primary rightLst">&gt</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div id="follower">
+    <div id="circle1"></div>
+    <div id="circle2"></div>
+</div>
+<footer></footer>
+
+<script>
+    window.onload = function () {
+        var height = function height(elem) {
+            return elem.getBoundingClientRect().height;
+        };
+
+        var distance = function distance(elemA, elemB, prop) {
+            var sizeA = elemA.getBoundingClientRect()[prop];
+            var sizeB = elemB.getBoundingClientRect()[prop];
+            return sizeB - sizeA;
+        };
+
+        var factor = function factor(elemA, elemB, prop) {
+            var sizeA = elemA.getBoundingClientRect()[prop];
+            var sizeB = elemB.getBoundingClientRect()[prop];
+            return sizeB / sizeA;
+        };
+
+        document.querySelectorAll('.card').forEach(function (elem) {
+            var head = elem.querySelector('.card-head');
+            var image = elem.querySelector('.card-image');
+            var projectInfo = elem.querySelector('.project-info-header');
+            var body = elem.querySelector('.card-body');
+
+            elem.onmouseenter = function () {
+                elem.classList.add('hover');
+                var imageScale = 1 + factor(head, body, 'height');
+                image.style.transform = "scale(".concat(imageScale, ")");
+                body.style.transform = "translateY(-70px)";
+                var authorDistance = distance(head, projectInfo, 'height');
+                projectInfo.style.transform = "translateY(".concat(authorDistance, "px)");
+            };
+
+            elem.onmouseleave = function () {
+                elem.classList.remove('hover');
+                image.style.transform = "none";
+                body.style.transform = "none";
+                projectInfo.style.transform = "none";
+            };
+        });
+
+        var cards = $('.card');
+
+        cards.on('mouseenter', function(e){
+            $('#follower').css({
+                display: 'block'
+            });
+        });
+        cards.on('mouseleave', function(e){
+            $('#follower').css({
+                display: 'none'
+            });
+        });
+
+        cards.on('mousemove', function(e){
+            $('#follower').css({
+                left:  e.pageX,
+                top:   e.pageY
+            });
+        });
+    };
+
+    $(document).ready(function () {
+        var itemsMainDiv = ('.MultiCarousel');
+        var itemsDiv = ('.MultiCarousel-inner');
+        var itemWidth = "";
+
+        $('.leftLst, .rightLst').click(function () {
+            var condition = $(this).hasClass("leftLst");
+            if (condition)
+                click(0, this);
+            else
+                click(1, this)
+        });
+
+        ResCarouselSize();
+
+
+        $(window).resize(function () {
+            ResCarouselSize();
+        });
+
+        //this function define the size of the items
+        function ResCarouselSize() {
+            var incno = 0;
+            var dataItems = ("data-items");
+            var itemClass = ('.item');
+            var id = 0;
+            var btnParentSb = '';
+            var itemsSplit = '';
+            var sampwidth = $(itemsMainDiv).width();
+            var bodyWidth = $('body').width();
+            $(itemsDiv).each(function () {
+                id = id + 1;
+                var itemNumbers = $(this).find(itemClass).length;
+                btnParentSb = $(this).parent().attr(dataItems);
+                itemsSplit = btnParentSb.split(',');
+                $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+                if (bodyWidth >= 1200) {
+                    incno = itemsSplit[3];
+                    itemWidth = sampwidth / incno;
+                }
+                else if (bodyWidth >= 992) {
+                    incno = itemsSplit[2];
+                    itemWidth = sampwidth / incno;
+                }
+                else if (bodyWidth >= 768) {
+                    incno = itemsSplit[1];
+                    itemWidth = sampwidth / incno;
+                }
+                else {
+                    incno = itemsSplit[0];
+                    itemWidth = sampwidth / incno;
+                }
+                $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                $(this).find(itemClass).each(function () {
+                    $(this).outerWidth(itemWidth);
+                });
+
+                $(".leftLst").addClass("over");
+                $(".rightLst").removeClass("over");
+
+            });
+        }
+
+
+        //this function used to move the items
+        function ResCarousel(e, el, s) {
+            var leftBtn = ('.leftLst');
+            var rightBtn = ('.rightLst');
+            var translateXval = '';
+            var divStyle = $(el + ' ' + itemsDiv).css('transform');
+            var values = divStyle.match(/-?[\d.]+/g);
+            var xds = Math.abs(values[4]);
+            if (e === 0) {
+                translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                $(el + ' ' + rightBtn).removeClass("over");
+
+                if (translateXval <= itemWidth / 2) {
+                    translateXval = 0;
+                    $(el + ' ' + leftBtn).addClass("over");
+                }
+            }
+            else if (e === 1) {
+                var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                $(el + ' ' + leftBtn).removeClass("over");
+
+                if (translateXval >= itemsCondition - itemWidth / 2) {
+                    translateXval = itemsCondition;
+                    $(el + ' ' + rightBtn).addClass("over");
+                }
+            }
+            $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+        }
+
+        //It is used to get some elements from btn
+        function click(ell, ee) {
+            var Parent = "#" + $(ee).parent().attr("id");
+            var slide = $(Parent).attr("data-slide");
+            ResCarousel(ell, Parent, slide);
+        }
+    });
+</script>
 </body>
 </html>

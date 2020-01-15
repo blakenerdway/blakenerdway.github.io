@@ -1,9 +1,58 @@
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    --main-color-dark: #39935a;
+    --main-color: #6bc487;
+    --main-color-light: #9df7b7;
 }
 
-.title{
+.card-text::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.card-text::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: var(--main-color-light);
+}
+
+.card-text::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#about{
+    margin: 20px 20% 50px 20%;
+}
+
+#name-div{
+    width: 100%;
+}
+
+#name{
+    text-align: center;
+    margin-bottom: -.5rem;
+}
+
+#name-title{
+    text-align: center;
+}
+
+
+
+h1, h2, .title{
     font-family: 'Roboto', sans-serif;
+    color: var(--main-color-dark);
+}
+
+h3, h4, .subtitle{
+    font-family: 'Roboto', sans-serif;
+    color: var(--main-color);
+}
+
+h5, h6 .subsubtitle {
+    font-family: 'Roboto', sans-serif;
+    color: var(--main-color-light);
 }
 
 #main-picture{
@@ -12,3 +61,362 @@ body{
     margin-right: auto;
     width: 25%;
 }
+
+.skill {
+    margin-left: .5rem;
+}
+
+#skills {
+    margin-top: 3rem;
+}
+
+#skills-title {
+    margin-bottom: -1rem;
+}
+
+div.skill-level{
+    display: inline-block;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+
+div.skill{
+    margin-top: 1.5rem;
+}
+
+div.skill-detail{
+    margin-left: .5rem;
+}
+
+div.track{
+    position: relative;
+    width: 100%;
+    height: 21px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-animation: prgBar 5s linear 0s infinite alternate;
+    animation: prgBar 5s linear 0s infinite alternate;
+}
+
+div.bar{
+    height: 8px;
+    width: 60px;
+    background-color: #ddd;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+    top: 3px;
+    float: left;
+    clear: top;
+
+    --bar-background: #ddd;
+}
+
+.bar-container{
+    display: inline-block;
+}
+
+.filled:nth-last-of-type(n+ 2),
+.filled:nth-last-of-type(n+2) ~ .filled {
+    background-color: #FF6363;
+
+    --bar-background: #FF6363;
+}
+
+.filled:nth-last-of-type(n+4),
+.filled:nth-last-of-type(n+4) ~ .filled {
+    background-color: #FF8832;
+
+    --bar-background: #FF8832;
+}
+
+.filled:nth-last-of-type(n+6),
+.filled:nth-last-of-type(n+6) ~ .filled {
+    background-color: #FFFF00;
+
+    --bar-background: #FFFF00;
+}
+
+.filled:nth-last-of-type(n+8),
+.filled:nth-last-of-type(n+8) ~ .filled {
+    background-color: #C6E600;
+
+    --bar-background: #C6E600;
+}
+
+.filled:nth-last-of-type(n+10),
+.filled:nth-last-of-type(n+10) ~ .filled {
+    background-color: #009C00;
+
+    --bar-background: #009C00;
+}
+
+
+.bar:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 100%;
+    height: 100%;
+    background: var(--bar-background);
+    -webkit-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: skew(-15deg);
+    -ms-transform: skew(-15deg);
+    transform: skew(-15deg);
+    z-index: -1;
+}
+
+.bar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 100%;
+    height: 100%;
+    background: var(--bar-background);
+    -webkit-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: skew(15deg);
+    -ms-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: -1;
+}
+
+.bar.first:before{
+    all: unset;
+}
+
+.bar.last:after{
+    all: unset;
+}
+
+
+#project-carousel{
+    margin: 10rem 5rem 0;
+}
+
+footer{
+    margin-top: 3rem;
+}
+
+
+.card {
+    cursor: none;
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+    flex-direction: column;
+    width: 500px;
+    background: white;
+    color: currentColor;
+    text-decoration: none;
+    overflow: hidden;
+    transition-property: color;
+    transition-delay: 0.15s;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+}
+.card.hover {
+    color: white;
+    transition-delay: .15s;
+    text-decoration: none;
+}
+.card, .card-image, .card-image::after, .project-info-header, .card-body, .card-foot, .card-border {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.51, 0.92, 0.24, 1);
+}
+.card-head {
+    position: relative;
+    padding-top: 70%;
+}
+.project-info-header {
+    position: absolute;
+    padding: 2em;
+    left: 0;
+    bottom: 0;
+    color: white;
+    transition-property: transform;
+    transition-delay: 0.15s;
+}
+.card.hover .project-info-header {
+    transition-delay: .15s;
+}
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transform-origin: top center;
+    transition-property: transform;
+    transition-delay: 0.15s;
+}
+
+#datavis-final-img{
+    background-image: url('./images/datavisfinal.PNG');
+}
+
+#datavis-dash-img{
+    background-image: url('./images/datavisdash.PNG');
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background: linear-gradient(30deg, rgba(26, 42, 99, .85), rgba(26, 42, 99, .5));
+    transition-property: opacity;
+    transition-delay: 0.15s;
+}
+.card.hover .card-image {
+    transition-delay: 0s;
+}
+.card.hover .card-image::after {
+    opacity: 1;
+    transition-delay: 0s;
+}
+.card-body {
+    position: relative;
+    padding: 2em;
+    transition-property: transform;
+    transition-delay: 0.15s;
+}
+.card.hover .card-body {
+    transition-delay: .15s;
+}
+.card-headline {
+    font-weight: 400;
+    margin: 0 0 0.8em;
+    color: var(--main-color);
+}
+.card-text {
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+    height: 100px;
+    overflow: auto;
+}
+
+.card-foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 2em 2em;
+    opacity: 0;
+    transition-property: opacity;
+}
+.card.hover .card-foot {
+    opacity: 1;
+    transition-delay: 0.15s;
+}
+
+
+.card-border {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background: #9df7b7;
+    transform: scaleY(0);
+    transition-property: transform;
+}
+.card.hover .card-border {
+    transform: none;
+    transition-delay: 0.15s;
+}
+.project-header {
+    display: flex;
+    align-items: center;
+}
+
+.project-info {
+    display: grid;
+    grid-gap: 0.4em;
+    font-size: 0.9em;
+}
+.project-name {
+    margin: 0;
+    font-weight: 600;
+}
+.project-for {
+    margin: 0;
+    opacity: 0.8;
+}
+
+#follower {
+    position: absolute;
+    display: none;
+}
+
+#follower #circle1 {
+    position: absolute;
+    -webkit-animation: pulse 2s infinite; /* Chrome, Safari, Opera */
+    animation: pulse 2s infinite;
+    background: #fff;
+    border-radius: 50%;
+    height: 0;
+    width: 0;
+    margin-top: 0;
+    margin-left: 0;
+    pointer-events: none;
+}
+#follower #circle2 {
+    position: absolute;
+    -webkit-animation: pulse 4s infinite; /* Chrome, Safari, Opera */
+    animation: pulse 4s infinite;
+    background: var(--main-color);
+    border-radius: 50%;
+    height: 0;
+    width: 0;
+    margin-top: 0;
+    margin-left: 0;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.2;
+        height: 1em;
+        width: 1em;
+        margin-top: -0.5em;
+        margin-left: -0.5em;
+    }
+    50% {
+        opacity: 0.9;
+        height: 3em;
+        width: 3em;
+        margin-top: -1.5em;
+        margin-left: -1.5em;
+    }
+    100% {
+        opacity: 0.2;
+        height: 1em;
+        width: 1em;
+        margin-top: -0.5em;
+        margin-left: -0.5em;
+    }
+}
+
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+.MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+.MultiCarousel .MultiCarousel-inner .item { float: left;}
+.MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+.MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+.MultiCarousel .leftLst { left:0; }
+.MultiCarousel .rightLst { right:0; }
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
