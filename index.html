@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Blake Ordway</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700,300italic|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700,300italic|Righteous|Comfortaa|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <script src="https://unpkg.com/swiper/js/swiper.js"></script>
@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="./main.css">
 </head>
-<body>
+<body ondragstart="return false;" ondrop="return false;">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
 </nav>
 <div id="about">
     <div id="name-div">
-        <h2 id="name">Blake Ordway</h2>
+        <h2 id="name" class="title">Blake Ordway</h2>
         <p id="name-title">Research Associate</p>
     </div>
     <img src="./images/frontal.jpg" alt="main picture" id="main-picture" class="">
@@ -278,130 +278,100 @@
         </div>
     </div>
 </div>
-<div id="project-carousel">
-    <a href="./cs498-datavis/index.html" class="card">
-        <div class="card-head">
-            <div class="card-image" id="datavis-final-img"></div>
-            <div class="project-info-header">
-                <div class="project-header">
-                    <div class="project-info">
-                        <p class="project-name">USA Medicare</p>
-                        <p class="project-for">CS 498 Final Project</p>
+<div id="parent-carousel">
+    <div id="project-carousel">
+        <div id="carousel-row">
+            <div id="carousel-data">
+                <a href="./cs498-datavis/index.html" class="card">
+                    <div class="card-head">
+                        <div class="card-image" id="datavis-final-img"></div>
+                        <div class="project-info-header">
+                            <div class="project-header">
+                                <div class="project-info">
+                                    <p class="project-name">USA Medicare</p>
+                                    <p class="project-for">CS 498 Final Project</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <h3 class="card-headline subtitle">Medicare Statistics</h3>
+                        <p class="card-text">This final project from my data visualization class combined my knowledge of D3.js with pre-processing and exploring data using Tableau.</p>
+                    </div>
+                </a>
+                <a href="https://public.tableau.com/profile/blake6389#!/vizhome/WeightViz/Dashboard" class="card">
+                    <div class="card-head">
+                        <div class="card-image" id="datavis-dash-img"></div>
+                        <div class="project-info-header">
+                            <div class="project-header">
+                                <div class="project-info">
+                                    <p class="project-name">My health data</p>
+                                    <p class="project-for">CS 498 Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-headline subtitle">Weight Dashboard</h3>
+                        <p class="card-text">A dashboard created in Tableau showing how my weight increases over a year of tracking.
+                            The data used was from an Apple Health export converted using a third-party tool to generate a CSV file.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://public.tableau.com/profile/blake6389#!/vizhome/WeightViz/Dashboard" class="card">
+                    <div class="card-head">
+                        <div class="card-image" id=""></div>
+                        <div class="project-info-header">
+                            <div class="project-header">
+                                <div class="project-info">
+                                    <p class="project-name">My health data</p>
+                                    <p class="project-for">CS 498 Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-headline subtitle">Weight Dashboard</h3>
+                        <p class="card-text">A dashboard created in Tableau showing how my weight increases over a year of tracking.
+                            The data used was from an Apple Health export converted using a third-party tool to generate a CSV file.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://public.tableau.com/profile/blake6389#!/vizhome/WeightViz/Dashboard" class="card">
+                    <div class="card-head">
+                        <div class="card-image" id="1"></div>
+                        <div class="project-info-header">
+                            <div class="project-header">
+                                <div class="project-info">
+                                    <p class="project-name">My health data</p>
+                                    <p class="project-for">CS 498 Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-headline subtitle">Weight Dashboard</h3>
+                        <p class="card-text">A dashboard created in Tableau showing how my weight increases over a year of tracking.
+                            The data used was from an Apple Health export converted using a third-party tool to generate a CSV file.
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="card-body">
-            <h3 class="card-headline">Medicare Statistics</h3>
-            <p class="card-text">This was my final project from my data visualization class. It combined my knowledge of D3 with pre-processing and exploring data using Tableau.</p>
+    </div>
+    <div class="arrow-container">
+        <div id="left-arrow">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
         </div>
-        <div class="card-border"></div>
-    </a>
-    <a href="https://public.tableau.com/profile/blake6389#!/vizhome/WeightViz/Dashboard" class="card">
-        <div class="card-head">
-            <div class="card-image" id="datavis-dash-img"></div>
-            <div class="project-info-header">
-                <div class="project-header">
-                    <div class="project-info">
-                        <p class="project-name">My health data</p>
-                        <p class="project-for">CS 498 Dashboard</p>
-                    </div>
-                </div>
-            </div>
+        <div id="right-arrow">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
         </div>
-        <div class="card-body">
-            <h3 class="card-headline">Weight Dashboard</h3>
-            <p class="card-text">A dashboard created in Tableau is used to show how my weight increases over a year of tracking.
-                The data used was from an Apple Health export converted using a third-party tool to generate a CSV file.
-            </p>
-        </div>
-        <div class="card-border"></div>
-    </a>
+    </div>
 </div>
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">-->
-<!--            <div class="MultiCarousel-inner">-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                    <div class="item">-->
-<!--                        <div class="pad15">-->
-<!--                            <p class="lead">Multi Item Carousel</p>-->
-<!--                            <p>Test</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="item">-->
-<!--                    <div class="pad15">-->
-<!--                        <p class="lead">Multi Item Carousel</p>-->
-<!--                        <p>Test</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <button class="btn btn-primary leftLst">&lt</button>-->
-<!--            <button class="btn btn-primary rightLst">&gt</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 <div id="follower">
     <div id="circle1"></div>
@@ -411,46 +381,7 @@
 
 <script>
     window.onload = function () {
-        var height = function height(elem) {
-            return elem.getBoundingClientRect().height;
-        };
-
-        var distance = function distance(elemA, elemB, prop) {
-            var sizeA = elemA.getBoundingClientRect()[prop];
-            var sizeB = elemB.getBoundingClientRect()[prop];
-            return sizeB - sizeA;
-        };
-
-        var factor = function factor(elemA, elemB, prop) {
-            var sizeA = elemA.getBoundingClientRect()[prop];
-            var sizeB = elemB.getBoundingClientRect()[prop];
-            return sizeB / sizeA;
-        };
-
-        document.querySelectorAll('.card').forEach(function (elem) {
-            var head = elem.querySelector('.card-head');
-            var image = elem.querySelector('.card-image');
-            var projectInfo = elem.querySelector('.project-info-header');
-            var body = elem.querySelector('.card-body');
-
-            elem.onmouseenter = function () {
-                elem.classList.add('hover');
-                var imageScale = 1 + factor(head, body, 'height');
-                image.style.transform = "scale(".concat(imageScale, ")");
-                body.style.transform = "translateY(-70px)";
-                var authorDistance = distance(head, projectInfo, 'height');
-                projectInfo.style.transform = "translateY(".concat(authorDistance, "px)");
-            };
-
-            elem.onmouseleave = function () {
-                elem.classList.remove('hover');
-                image.style.transform = "none";
-                body.style.transform = "none";
-                projectInfo.style.transform = "none";
-            };
-        });
-
-        var cards = $('.card');
+        var cards = $('#parent-carousel');
 
         cards.on('mouseenter', function(e){
             $('#follower').css({
@@ -472,108 +403,73 @@
     };
 
     $(document).ready(function () {
-        var itemsMainDiv = ('.MultiCarousel');
-        var itemsDiv = ('.MultiCarousel-inner');
-        var itemWidth = "";
+        var down=false;
+        var scrollLeft=0;
+        var x = 0;
+        var scrolling=false;
+        var timeout;
 
-        $('.leftLst, .rightLst').click(function () {
-            var condition = $(this).hasClass("leftLst");
-            if (condition)
-                click(0, this);
-            else
-                click(1, this)
+        $('#project-carousel').on('mousedown', function(e) {
+            down = true;
+            scrollLeft = this.scrollLeft;
+            x = e.clientX;
+        });
+        $('#project-carousel').on('mouseup', function(e) {
+            down = false;
+            if (timeout)
+                clearTimeout(timeout);
+            timeout = setTimeout(() => {scrolling = false;}, 10);
+        });
+        $('#project-carousel').on('mousemove', function(e) {
+            if (down) {
+                this.scrollLeft = scrollLeft  + (x - e.clientX) * 1.3;
+                // this.scrollLeft = scrollLeft + x - e.clientX;
+
+                checkHideArrows(this);
+
+                scrolling = true;
+            }
+        });
+        $('#project-carousel').on('mouseleave', function() {
+            down = false;
         });
 
-        ResCarouselSize();
-
-
-        $(window).resize(function () {
-            ResCarouselSize();
+        $('.card').click(function(e){
+            if (scrolling){
+                e.preventDefault();
+            }
         });
 
-        //this function define the size of the items
-        function ResCarouselSize() {
-            var incno = 0;
-            var dataItems = ("data-items");
-            var itemClass = ('.item');
-            var id = 0;
-            var btnParentSb = '';
-            var itemsSplit = '';
-            var sampwidth = $(itemsMainDiv).width();
-            var bodyWidth = $('body').width();
-            $(itemsDiv).each(function () {
-                id = id + 1;
-                var itemNumbers = $(this).find(itemClass).length;
-                btnParentSb = $(this).parent().attr(dataItems);
-                itemsSplit = btnParentSb.split(',');
-                $(this).parent().attr("id", "MultiCarousel" + id);
+        // $("#project-carousel").on('mousemove', function(e){
+        //    var leftOffset = $(this).offset().left;
+        //    console.log(leftOffset);
+        //    $('#carousel-data').css('transform', "translateX("-e.clientX + leftOffset+ "px)");
 
 
-                if (bodyWidth >= 1200) {
-                    incno = itemsSplit[3];
-                    itemWidth = sampwidth / incno;
-                }
-                else if (bodyWidth >= 992) {
-                    incno = itemsSplit[2];
-                    itemWidth = sampwidth / incno;
-                }
-                else if (bodyWidth >= 768) {
-                    incno = itemsSplit[1];
-                    itemWidth = sampwidth / incno;
-                }
-                else {
-                    incno = itemsSplit[0];
-                    itemWidth = sampwidth / incno;
-                }
-                $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
-                $(this).find(itemClass).each(function () {
-                    $(this).outerWidth(itemWidth);
-                });
-
-                $(".leftLst").addClass("over");
-                $(".rightLst").removeClass("over");
-
-            });
-        }
-
-
-        //this function used to move the items
-        function ResCarousel(e, el, s) {
-            var leftBtn = ('.leftLst');
-            var rightBtn = ('.rightLst');
-            var translateXval = '';
-            var divStyle = $(el + ' ' + itemsDiv).css('transform');
-            var values = divStyle.match(/-?[\d.]+/g);
-            var xds = Math.abs(values[4]);
-            if (e === 0) {
-                translateXval = parseInt(xds) - parseInt(itemWidth * s);
-                $(el + ' ' + rightBtn).removeClass("over");
-
-                if (translateXval <= itemWidth / 2) {
-                    translateXval = 0;
-                    $(el + ' ' + leftBtn).addClass("over");
-                }
-            }
-            else if (e === 1) {
-                var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
-                translateXval = parseInt(xds) + parseInt(itemWidth * s);
-                $(el + ' ' + leftBtn).removeClass("over");
-
-                if (translateXval >= itemsCondition - itemWidth / 2) {
-                    translateXval = itemsCondition;
-                    $(el + ' ' + rightBtn).addClass("over");
-                }
-            }
-            $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
-        }
-
-        //It is used to get some elements from btn
-        function click(ell, ee) {
-            var Parent = "#" + $(ee).parent().attr("id");
-            var slide = $(Parent).attr("data-slide");
-            ResCarousel(ell, Parent, slide);
-        }
+           // $("#carousel-data").css("transform", "translateX(-150px)");
     });
+
+    function checkHideArrows(ele){
+        if (ele.scrollLeft === 0){
+            $('#left-arrow').css({visibility: 'hidden'});
+        }
+        else{
+            $('#left-arrow').css({visibility: 'visible'});
+        }
+
+        var maxScrollLeft = ele.scrollWidth - $(ele).css("width").replace(/[^-\d.]/g, '');
+        if (ele.scrollLeft === maxScrollLeft){
+            $('#right-arrow').css({visibility: 'hidden'});
+        }
+        else{
+            $('#right-arrow').css({visibility: 'visible'});
+        }
+    }
+
+    window.onresize = function(event) {
+        checkHideArrows($('#project-carousel')[0])
+    };
+
 </script>
 </body>
 </html>
