@@ -4,8 +4,6 @@ padding: 0;
 box-sizing: border-box;
 }
 
-
-
 body {
     height: 100%;
     background-size: 100% 100%;
@@ -19,33 +17,20 @@ body {
 
     --title-text: 'Righteous', cursive;
     --subtitle-text: 'Comfortaa', cursive;
-
-
-    background-image: linear-gradient(var(--main-color-light), transparent 70%);
 }
 
 nav{
     font-weight: 700;
 }
 
-.card-text::-webkit-scrollbar {
-    width: 6px;
-    background-color: transparent;
-}
-
-.card-text::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: var(--main-color-light);
-}
-
-.card-text::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: transparent;
+keyword{
+    display: inline-block;
+    font-weight: 600;
+    color: var(--main-color-dark);
 }
 
 #about{
-    margin: 20px 20% 50px 20%;
+    margin: 20px 5% 50px 5%;
 }
 
 #name-div{
@@ -64,6 +49,27 @@ nav{
     font-family: var(--subtitle-text);
     font-weight: 600;
     font-size: .85rem;
+}
+
+#description > section:nth-child(2n){
+    margin-left: 30%;
+}
+
+#description > section:nth-child(2n) > .subtitle{
+    text-align: right;
+    margin-right: 2%;
+}
+
+#description > section:nth-child(2n + 1){
+    margin-right: 30%;
+}
+
+#description > section:nth-child(2n + 1) > .subtitle{
+    text-align: left;
+}
+
+#description > section:not(first-child) {
+    margin-top: 5rem;
 }
 
 
@@ -90,7 +96,7 @@ nav{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 23%;
 }
 
 .skill {
@@ -98,7 +104,7 @@ nav{
 }
 
 #skills {
-    margin-top: 3rem;
+    margin: 13rem 20% 3rem 20%;
 }
 
 #skills-title {
@@ -109,6 +115,7 @@ div.skill-level{
     display: inline-block;
     background-color: transparent;
     margin-top: 1rem;
+    width: 100%;
 }
 
 div.skill{
@@ -121,7 +128,7 @@ div.skill-detail{
 
 div.track{
     position: relative;
-    width: 100%;
+    width: inherit;
     height: 21px;
     overflow: hidden;
     padding-left: 10px;
@@ -132,21 +139,20 @@ div.track{
 
 div.bar{
     height: 8px;
-    width: 60px;
+    width: 7%;
     background-color: #ddd;
     position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 100px;
+    margin-left: 1%;
+    margin-right: 1%;
     top: 3px;
     float: left;
-    clear: top;
 
     --bar-background: #ddd;
 }
 
 .bar-container{
-    display: inline-block;
+    /*display: inline-block;*/
+    width: auto;
 }
 
 .filled:nth-last-of-type(n+ 2),
@@ -231,12 +237,12 @@ div.bar{
 #parent-carousel{
     margin: 5rem 5rem 0;
     padding-top: 5rem;
-    cursor: none;
     position: relative;
 }
 
 #project-carousel{
     padding-left: 1rem;
+    cursor: none;
 }
 
 #project-carousel{
@@ -252,6 +258,22 @@ div.bar{
 
 footer{
     margin-top: 7rem;
+}
+
+.card-text::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.card-text::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: var(--main-color-light);
+}
+
+.card-text::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
 }
 
 .card {
@@ -322,6 +344,26 @@ a:hover {
 
 #datavis-dash-img{
     background-image: url('./images/datavisdash.PNG');
+}
+
+#textmining-img{
+    background-image: url('./images/textmining.PNG');
+}
+
+#xmltocsv-project-img{
+    background-image: url('./images/scalaproj.PNG');
+}
+
+#mirage-img{
+    background-image: url('./images/mirage.PNG');
+}
+
+#netviewer-img{
+    background-image: url('./images/netviewer.PNG');
+}
+
+#autonomous-system-img{
+    background-image: url('./images/autonomouscar.PNG');
 }
 
 .card-image::after {
@@ -435,7 +477,7 @@ b{
     /*opacity: 1;*/
     transform: scale3d(0.5, 0.5, 0.5);
     animation: move 3s ease-out infinite;
-    color: var(--main-color-light);
+    color: var(--main-color);
 }
 
 .chevron:first-child {
